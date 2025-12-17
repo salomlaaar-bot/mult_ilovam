@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:mult/boshoyna.dart';
 import 'package:mult/bottombar.dart';
+import 'package:mult/uchbaxodir.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -42,7 +44,7 @@ class _TraveloynaState extends State<Login>
             );
           },
         );
-        Future.delayed(const Duration(seconds: 3), () {
+        Future.delayed(const Duration(seconds: 1), () {
           Navigator.pop(context);
           Navigator.push(
             context,
@@ -94,28 +96,18 @@ class _TraveloynaState extends State<Login>
                                 ),
                               ),
                             ),
+                            const SizedBox(height: 20),
                             Text(
-                              "Uzbek Tilidagi Multfilmlar",
-                              style: TextStyle(
-                                fontSize: 15,
+                              "Multfilmlar",
+                              style: GoogleFonts.acme(
+                                fontSize: 25,
                                 color: Colors.white,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 3),
-                              child: Text(
-                                "Eng Zo'r Filmlar",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                ),
                               ),
                             ),
                           ],
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 35),
                   ],
                 ),

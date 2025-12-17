@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Nikolya extends StatefulWidget {
   const Nikolya({super.key});
 
@@ -31,7 +31,10 @@ class _YoutubeApp1State extends State<Nikolya> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); HistoryHelper.addToHistory(
+      title: "Kichkina Nikolya 75-min",
+      imageUrl: 'https://img.youtube.com/vi/uqNFAiJxYV8/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

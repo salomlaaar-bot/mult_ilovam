@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:mult/oxirgikorilganlar.dart';
 
 class Fiksiklar extends StatefulWidget {
   const Fiksiklar({super.key});
@@ -120,7 +121,12 @@ class _YoutubeApp1State extends State<Fiksiklar> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); HistoryHelper.addToHistory(
+      title: 'Fiksiklar',
+      imageUrl:
+          'https://static.tildacdn.one/tild3732-6534-4466-b434-393134396436/fiksiki_digital_.png',
+    );
+
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:mult/oxirgikorilganlar.dart';
-class Sehrliboshmoq extends StatefulWidget {
-  const Sehrliboshmoq({super.key});
+
+class Olingquda extends StatefulWidget {
+  const Olingquda({super.key});
 
   @override
-  State<Sehrliboshmoq> createState() => _YoutubeApp1State();
+  State<Olingquda> createState() => _YoutubeApp1State();
 }
 
-class _YoutubeApp1State extends State<Sehrliboshmoq> {
+class _YoutubeApp1State extends State<Olingquda> {
   late YoutubePlayerController _controller;
   late YoutubeMetaData _videoMetaData;
   late PlayerState _playerState;
@@ -18,27 +19,24 @@ class _YoutubeApp1State extends State<Sehrliboshmoq> {
 
   // Video IDlar
   final List<String> _ids = [
-    'IeKbTiMLqqM', //1
-  
+    '4T2pE5ZPAf4', //1
   ];
 
   // Har bir video uchun alohida rasm
   final List<String> _images = [
-    'https://img.youtube.com/vi/IeKbTiMLqqM/0.jpg', //1
-
+    'https://img.youtube.com/vi/4T2pE5ZPAf4/0.jpg', //1
   ];
 
   // Har bir video uchun alohida text
-  final List<String> _titles = [
-    "Sehrli Boshmoqlar 1-qism",
-   
-  ];
+  final List<String> _titles = ['oling quda bering quda'];
 
   @override
   void initState() {
-    super.initState(); HistoryHelper.addToHistory(
-      title: "Sehrli Boshmoqlar",
-      imageUrl: 'https://img.youtube.com/vi/IeKbTiMLqqM/0.jpg',
+    super.initState();
+    HistoryHelper.addToHistory(
+      title: "Oling Quda Bering Quda",
+      imageUrl:
+          'https://files.itv.uz/uploads/content/poster/2023/10/16/3305f9171d9ed3bdaa2885c47f87ff48-q-700x1002.jpeg',
     );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
@@ -89,7 +87,7 @@ class _YoutubeApp1State extends State<Sehrliboshmoq> {
             },
             icon: Icon(Icons.arrow_back_ios, color: Colors.white),
           ),
-          title: const Text('Sehrli Boshmoq'),
+          title: const Text('Oling Quda Bering Quda'),
           backgroundColor: Color(0xFF001645),
         ),
         body: Container(

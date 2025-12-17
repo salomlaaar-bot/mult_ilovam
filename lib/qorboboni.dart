@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:mult/oxirgikorilganlar.dart';
 
 class Qorboboni extends StatefulWidget {
   const Qorboboni({super.key});
@@ -18,20 +19,24 @@ class _YoutubeApp1State extends State<Qorboboni> {
 
   // Video IDlar
   final List<String> _ids = [
-    'S_Dbpsvn7Tk', //1
+    'VQhjORcCL2c', //1
   ];
 
   // Har bir video uchun alohida rasm
   final List<String> _images = [
-    'https://img.youtube.com/vi/S_Dbpsvn7Tk/0.jpg', //1
+    'https://img.youtube.com/vi/VQhjORcCL2c/0.jpg', //1
   ];
 
   // Har bir video uchun alohida text
-  final List<String> _titles = ["Qorbobni Qutqaring"];
+  final List<String> _titles = ["Qorboboni Qutqaring"];
 
   @override
   void initState() {
     super.initState();
+    HistoryHelper.addToHistory(
+      title: "Qorboboni Qutqaring",
+      imageUrl: 'https://img.youtube.com/vi/VQhjORcCL2c/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Maugli extends StatefulWidget {
   const Maugli({super.key});
 
@@ -31,7 +31,10 @@ class _YoutubeApp1State extends State<Maugli> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); HistoryHelper.addToHistory(
+      title: "Maugli ",
+      imageUrl: 'https://img.youtube.com/vi/gUs-7mWk3nk/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

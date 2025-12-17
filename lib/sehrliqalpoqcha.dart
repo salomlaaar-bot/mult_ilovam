@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Sehrliqalpoqcha extends StatefulWidget {
   const Sehrliqalpoqcha({super.key});
 
@@ -36,7 +36,10 @@ class _YoutubeApp1State extends State<Sehrliqalpoqcha> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); HistoryHelper.addToHistory(
+      title: "Sehrli Qalpoqcha",
+      imageUrl: 'https://img.youtube.com/vi/nWQS38wkEzE/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Uchbaxodir extends StatefulWidget {
   const Uchbaxodir({super.key});
 
@@ -36,7 +36,10 @@ class _YoutubeApp1State extends State<Uchbaxodir> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); HistoryHelper.addToHistory(
+      title: "Uch Bahodir",
+      imageUrl: 'https://img.youtube.com/vi/Owtxg4WW4-s/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Quloqpiter extends StatefulWidget {
   const Quloqpiter({super.key});
 
@@ -31,7 +31,10 @@ class _YoutubeApp1State extends State<Quloqpiter> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); HistoryHelper.addToHistory(
+      title: "Uzunquloq Piter",
+      imageUrl: 'https://img.youtube.com/vi/IGz5t3PYeYs/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

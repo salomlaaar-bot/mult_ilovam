@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Bugu extends StatefulWidget {
   const Bugu({super.key});
 
@@ -32,6 +32,10 @@ class _YoutubeApp1State extends State<Bugu> {
   @override
   void initState() {
     super.initState();
+    HistoryHelper.addToHistory(
+      title: "Bug'uning Parvozi",
+      imageUrl: 'https://img.youtube.com/vi/S_Dbpsvn7Tk/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

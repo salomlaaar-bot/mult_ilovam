@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Ballerina extends StatefulWidget {
   const Ballerina({super.key});
 
@@ -32,6 +32,10 @@ class _YoutubeApp1State extends State<Ballerina> {
   @override
   void initState() {
     super.initState();
+    HistoryHelper.addToHistory(
+      title: 'Ballerina',
+      imageUrl: 'https://img.youtube.com/vi/u0Z36lHoHGQ/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

@@ -5,7 +5,6 @@ import 'package:mult/container2.dart';
 import 'package:mult/container3.dart';
 import 'package:mult/container4.dart';
 
-// Asosiy oyna
 class Hammasii extends StatefulWidget {
   const Hammasii({super.key});
 
@@ -20,12 +19,15 @@ class _HammasiiState extends State<Hammasii> {
     Container1Page(),
     Container2Page(),
     Container3Page(),
-    Container4Page()
+    Container4Page(),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
+      extendBodyBehindAppBar: true, // Body AppBar ostiga uzayadi
       appBar: AppBar(
         toolbarHeight: 35,
         title: Text(
@@ -35,66 +37,101 @@ class _HammasiiState extends State<Hammasii> {
         leading: Icon(CupertinoIcons.bars, color: Colors.white),
         centerTitle: false,
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.transparent, // Doim shaffof
+        iconTheme: IconThemeData(color: Colors.white),
       ),
-      backgroundColor: Color(0xff017292),
-      body: Column(
-        children: [
-          // 3 ta container
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                children: List.generate(4, (index) {
-                  final titles = [
-                    "Hamma Multfilmlar",
-                    "Hayvonlar Haqida",
-                    "Bolalar uchun",
-                    "Kinolar Uzb Tilida"
-                  ];
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: isDark
+                ? [Colors.black, Colors.grey[900]!]
+                : [Color(0xff017292), Color(0xff0288a8)],
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Horizontal scroll categories
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    children: List.generate(4, (index) {
+                      final titles = [
+                        "Hamma Multfilmlar",
+                        "Hayvonlar Haqida",
+                        "Bolalar uchun",
+                        "Kinolar",
+                      ];
 
-                  // Rangni tanlash: tanlangan container purple, qolganlar blue
-                  final color = _selectedIndex == index
-                      ? Colors.blue
-                      : Colors.purple[400];
+                      final isSelected = _selectedIndex == index;
 
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 15),
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _selectedIndex = index;
-                        });
-                      },
-                      child: Container(
-                        width: 250,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: color,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: Text(
-                            titles[index],
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _selectedIndex = index;
+                            });
+                          },
+                          child: Container(
+                            width: 250,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: isDark
+                                    ? (isSelected
+                                          ? [Colors.white, Colors.grey[300]!]
+                                          : [
+                                              Colors.grey[700]!,
+                                              Colors.grey[800]!,
+                                            ])
+                                    : (isSelected
+                                          ? [Colors.blue, Colors.blue[600]!]
+                                          : [
+                                              Colors.purple[400]!,
+                                              Colors.purple[500]!,
+                                            ]),
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(
+                                    isDark ? 0.5 : 0.2,
+                                  ),
+                                  blurRadius: 6,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                titles[index],
+                                style: TextStyle(
+                                  color: isDark && isSelected
+                                      ? Colors.black
+                                      : Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                  );
-                }),
+                      );
+                    }),
+                  ),
+                ),
               ),
-            ),
+
+              const SizedBox(height: 20),
+
+              Expanded(child: _pages[_selectedIndex]),
+            ],
           ),
-
-          const SizedBox(height: 20),
-
-          Expanded(child: _pages[_selectedIndex]),
-        ],
+        ),
       ),
     );
   }

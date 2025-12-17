@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Uddaburon extends StatefulWidget {
   const Uddaburon({super.key});
 
@@ -31,7 +31,10 @@ class _YoutubeApp1State extends State<Uddaburon> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); HistoryHelper.addToHistory(
+      title: "Uddaburon Bolalar",
+      imageUrl: 'https://img.youtube.com/vi/OIA0Tdn_qeA/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

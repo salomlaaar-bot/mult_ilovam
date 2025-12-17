@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Avtosarguzash extends StatefulWidget {
   const Avtosarguzash({super.key});
 
@@ -32,6 +32,10 @@ class _YoutubeApp1State extends State<Avtosarguzash> {
   @override
   void initState() {
     super.initState();
+     HistoryHelper.addToHistory(
+      title: 'Avtosarguzashtlar',
+      imageUrl: 'https://img.youtube.com/vi/T_HcLB0nmVY/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

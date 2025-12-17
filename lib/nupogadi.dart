@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Nupogadi extends StatefulWidget {
   const Nupogadi({super.key});
 
@@ -31,7 +31,10 @@ class _YoutubeApp1State extends State<Nupogadi> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); HistoryHelper.addToHistory(
+      title: "Nu Pogadi 125-min",
+      imageUrl: 'https://img.youtube.com/vi/uJ2dmylY1Mw/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

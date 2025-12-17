@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Karlson extends StatefulWidget {
   const Karlson({super.key});
 
@@ -31,7 +31,10 @@ class _YoutubeApp1State extends State<Karlson> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); HistoryHelper.addToHistory(
+      title: "Yana Osha, Karlson",
+      imageUrl: 'https://img.youtube.com/vi/B61qAgCH6RI/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

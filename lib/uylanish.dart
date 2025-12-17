@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:mult/oxirgikorilganlar.dart';
 
 class Uylanish extends StatefulWidget {
   const Uylanish({super.key});
@@ -32,6 +33,10 @@ class _YoutubeApp1State extends State<Uylanish> {
   @override
   void initState() {
     super.initState();
+    HistoryHelper.addToHistory(
+      title: "Uylanish",
+      imageUrl: 'https://img.youtube.com/vi/-vKa-rLxhr4/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

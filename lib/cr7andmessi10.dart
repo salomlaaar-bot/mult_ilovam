@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Cr7andmessi10 extends StatefulWidget {
   const Cr7andmessi10({super.key});
 
@@ -32,6 +32,10 @@ class _YoutubeApp1State extends State<Cr7andmessi10> {
   @override
   void initState() {
     super.initState();
+     HistoryHelper.addToHistory(
+      title: "Cristiano Va Leo Hayoti",
+      imageUrl: 'https://img.youtube.com/vi/Nm4CjNiOu1M/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(

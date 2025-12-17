@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:mult/oxirgikorilganlar.dart';
 
 class Farishta extends StatefulWidget {
   const Farishta({super.key});
@@ -29,11 +30,15 @@ class _YoutubeApp1State extends State<Farishta> {
   ];
 
   // Har bir video uchun alohida text
-  final List<String> _titles = ['Sevgi Farishtasi'];
+  final List<String> _titles = ['Sevgi Farishtasi', "Sevgi Farishtasi-2"];
 
   @override
   void initState() {
     super.initState();
+    HistoryHelper.addToHistory(
+      title: 'Sevgi Farishtasi',
+      imageUrl: 'https://img.youtube.com/vi/CT7YhRBOweA/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(
@@ -150,7 +155,7 @@ class _YoutubeApp1State extends State<Farishta> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
-                    _images[index],
+                    _images[index == 0 ? 0 : index - 1],
                     height: 100,
                     width: 100,
                     fit: BoxFit.cover,
@@ -159,7 +164,7 @@ class _YoutubeApp1State extends State<Farishta> {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    _titles[index],
+                    _titles[index == 0 ? 0 : index - 1],
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black,

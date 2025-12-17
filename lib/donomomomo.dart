@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'package:mult/oxirgikorilganlar.dart';
 class Donomomomo extends StatefulWidget {
   const Donomomomo({super.key});
 
@@ -72,7 +72,10 @@ class _YoutubeApp1State extends State<Donomomomo> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); HistoryHelper.addToHistory(
+      title: "Dono va Momomo",
+      imageUrl: 'https://img.youtube.com/vi/z-t_aURsxLM/0.jpg',
+    );
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(
